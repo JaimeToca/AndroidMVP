@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UseCompoundDrawables"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/row_padding"
+    >
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/row_icon_width"
+        android:layout_height="@dimen/row_icon_width"
+        android:src="@drawable/ic_person_black_18dp"
+        android:paddingLeft="@dimen/row_icon_padding"
+        android:paddingRight="@dimen/row_icon_padding"
+        android:contentDescription="@string/row_description"
+        />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/row_text_size"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        />
+
+</LinearLayout>

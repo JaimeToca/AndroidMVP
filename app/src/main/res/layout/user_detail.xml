@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_100">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/actorPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/cover_height"
+            android:background="@color/blue_300"
+            />
+
+        <ProgressBar
+            android:id="@+id/detailProgressBar"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            style="?android:attr/progressBarStyleLarge"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/actorName"
+        android:background="@color/blue_50"
+        style="@style/AppTheme.TextViewHeader"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:text="@string/birthday"
+            style="@style/AppTheme.TextViewTitle"
+            />
+        <TextView
+            android:id="@+id/actorBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            style="@style/AppTheme.TextViewTitle"
+            android:text="@string/placeOfBirth"
+
+            />
+        <TextView
+            android:id="@+id/actorPlaceOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            style="@style/AppTheme.TextViewTitle"
+            android:text="@string/homepage"
+            />
+
+        <TextView
+            android:id="@+id/actorHomepage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            style="@style/AppTheme.TextViewTitle"
+            android:text="@string/biography"
+            />
+
+        <TextView
+            android:id="@+id/actorBiography"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

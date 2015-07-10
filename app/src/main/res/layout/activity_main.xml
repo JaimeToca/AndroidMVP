@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/actorsList"
+        style="@style/AppTheme.RecyclerViewStyle"
+        />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/AppTheme.ToolBarStyle"
+        >
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:text="@string/app_name"
+            style="@style/AppTheme.ToolBarEditText"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+</FrameLayout>

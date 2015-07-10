@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Actors Database</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="done">Done</string>
+    <string name="actorApp">ActorAPP</string>
+
+    <string name="row_description">Cannot access view</string>
+
+    <string name="name">NAME</string>
+    <string name="placeOfBirth">PLACE OF BIRTH</string>
+    <string name="birthday">BIRTHDAY</string>
+    <string name="homepage">HOMEPAGE</string>
+    <string name="biography">BIOGRAPHY</string>
+    <string name="noHomepage">none</string>
+
+</resources>
