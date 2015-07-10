@@ -2,6 +2,7 @@
 Sample project using MVP Clean architecture. The purpose of this first version was not to show beautiful animations/interfaces but to implement Model-View-Presenter architecture and use some interesting libraries and technologies.
 In this project you will learn : 
 
+ - How to work with a model-view-presenter architecture on android
  - How to work with RecyclerView and the new Toolbar hiding and showing it when the user scrolls down/up
  - How to use dagger 2.0 framework and work with dependency injection 
  - How to work with REST Json using Retrofit library
