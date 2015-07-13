@@ -44,13 +44,18 @@ import com.squareup.otto.ThreadEnforcer;
 import java.util.List;
 import javax.inject.Inject;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class ActorsPopularActivity extends Activity implements PopularActorsView{
 
-    private RecyclerView recyclerView;
-    private TextView toolbarTittle;
+    /* View Bindings */
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.toolbarTitle) TextView toolbarTittle;
+    @Bind(R.id.actorsList) RecyclerView recyclerView;
+
     private Typeface type;
     private ActorsAdapter adapter;
-    private Toolbar toolbar;
 
     /* with dagger 2.0 */
     @Inject
@@ -66,13 +71,13 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbarTittle = (TextView) findViewById(R.id.toolbarTitle);
+        /* Toolbar settings */
         type = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
         toolbarTittle.setTypeface(type);
 
-        recyclerView = (RecyclerView) findViewById(R.id.actorsList);
+        /* RecyclerView settings */
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setOnScrollListener(recyclerScrollListener);

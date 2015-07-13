@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -50,41 +51,38 @@ import com.squareup.picasso.Callback;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class ActorDetailActivity extends Activity implements ActorDetailView {
-
-    Bundle bundle;
-    private String actorId;
-    private TextView name,birthday,placeOfBirth,homepage,biography;
-    private Typeface type;
-    private ImageView actorPhoto;
-    private ProgressBar progressBar;
 
     private static final String URL_BASE_PHOTOS = "https://image.tmdb.org/t/p/original/";
     private static final int MIN_URL = 2;
 
+    /* View Bindings */
+    @Bind(R.id.detailProgressBar) ProgressBar progressBar;
+    @Bind(R.id.actorPhoto) ImageView actorPhoto;
+    @Bind(R.id.actorName) TextView name;
+    @Bind(R.id.actorBirthday) TextView birthday;
+    @Bind(R.id.actorPlaceOfBirth) TextView placeOfBirth;
+    @Bind(R.id.actorHomepage) TextView homepage;
+    @Bind(R.id.actorBiography) TextView biography;
+
+    Bundle bundle;
+    private String actorId;
+    private Typeface type;
+
     @Inject
     ActorDetailPresenter detailActorPresenter;
-
-/*    without dagger 2.0
-      private Bus bus = new Bus();
-      private RestActorSource restActorSource = new RestActorSource(bus);
-      private GetDetailActorImp getDetailActorImp = new GetDetailActorImp("85",bus,restActorSource);
-      private ActorDetailPresenter detailActorPresenter = new ActorDetailPresenter(getDetailActorImp,bus); */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.user_detail);
-        name = (TextView) findViewById(R.id.actorName);
-        birthday = (TextView) findViewById(R.id.actorBirthday);
-        placeOfBirth = (TextView) findViewById(R.id.actorPlaceOfBirth);
-        homepage = (TextView) findViewById(R.id.actorHomepage);
-        biography = (TextView) findViewById(R.id.actorBiography);
-        actorPhoto =(ImageView) findViewById(R.id.actorPhoto);
-        progressBar = (ProgressBar) findViewById(R.id.detailProgressBar);
+        ButterKnife.bind(this);
 
+        /* NameView settings */
         type = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
         name.setTypeface(type);
 
