@@ -51,10 +51,6 @@ import com.squareup.picasso.Callback;
 import javax.inject.Inject;
 
 
-/**
- * Created by Jaime Toca on 28/06/2015.
- */
-
 public class ActorDetailActivity extends Activity implements ActorDetailView {
 
     Bundle bundle;

@@ -21,9 +21,7 @@ import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import javax.inject.Inject;
 
-/**
- * Created by Jaime Toca on 07/07/2015.
- */
+
 public class PopularActorsPresenter extends Presenter {
 
     private final Bus pBus;

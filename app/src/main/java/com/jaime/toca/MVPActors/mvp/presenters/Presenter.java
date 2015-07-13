@@ -15,9 +15,6 @@
  */
 package com.jaime.toca.MVPActors.mvp.presenters;
 
-/**
- * Created by Jaime Toca on 07/07/2015.
- */
 
 /* This methos are used to manage the activity lifecycle in MVP pattern */
 

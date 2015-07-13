@@ -15,9 +15,6 @@
  */
 package com.jaime.toca.MVPActors.domain.repository.mapper;
 
-/**
- * Created by Jaime Toca on 07/07/2015.
- */
 public class ActorsWrapperMapper {
 
     //Implement for next version. This will map information from model-rest to model-domain

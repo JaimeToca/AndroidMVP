@@ -26,9 +26,6 @@ import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
-/**
- * Created by Jaime Toca on 08/07/2015.
- */
 public class ActorDetailPresenter extends Presenter {
 
     private final static int MIN_URL_SIZE = 2;
