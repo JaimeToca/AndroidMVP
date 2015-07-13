@@ -88,7 +88,6 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
 
         initializeDependencyInjector();
         detailActorPresenter.attachView(this);
-
     }
 
     @Override

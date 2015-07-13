@@ -9,7 +9,6 @@ public class ActorsApp extends Application {
 
     private AppComponent appComponent;
 
-
     @Override public void onCreate() {
         super.onCreate();
         this.initializeDependencyInjector();
