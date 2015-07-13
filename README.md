@@ -1,20 +1,20 @@
 # Android MVP
-Sample project using MVP Clean architecture. The purpose of this first version was not to show beautiful animations/interfaces but to implement Model-View-Presenter architecture and use some interesting libraries and technologies.
-In this project you will learn : 
+Sample project using MVP Clean architecture. This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. The purpose of this first version was not to show beautiful animations/interfaces (next version will implement these things) but to implement Model-View-Presenter architecture and use some interesting libraries and technologies.
+In this project you will learn how to : 
 
- - How to work with a model-view-presenter architecture on android
- - How to work with RecyclerView and the new Toolbar hiding and showing it when the user scrolls down/up
- - How to use dagger 2.0 framework and work with dependency injection 
- - How to work with REST Json using Retrofit library
- - To use picasso in order to download and modify images
- - To avoid duplicated code using ButterKnife <br/>
+ - Work with a model-view-presenter architecture on android
+ - Work with RecyclerView and the new Toolbar hiding and showing it when the user scrolls down/up
+ - Use dagger 2.0 framework and work with dependency injection 
+ - Work with REST Json using Retrofit library
+ - Use picasso in order to download and modify images
+ - Avoid duplicated code using ButterKnife <br/>
 And many more things :D <br/>
 
 **Upcoming changes to next version:**
 
  - New animations and interface improvements (Material Design)
  - New mapper. It will map the information from the repository to domain
- - Thread implemetation instead of otto bus
+ - Thread implementation instead of otto bus
  - and a few more things ...
 
 
