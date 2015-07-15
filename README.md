@@ -14,7 +14,7 @@ And many more things :D <br/>
 
  - New animations and interface improvements (Material Design)
  - New mapper. It will map the information from the repository to domain
- - Thread implementation instead of otto bus
+ - Threads implementation instead of otto bus
  - and a few more things ...
 
 
