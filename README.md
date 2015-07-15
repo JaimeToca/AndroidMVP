@@ -1,5 +1,5 @@
 # Android MVP
-Sample project using MVP Clean architecture. This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. The purpose of this first version was not to show beautiful animations/interfaces (next version will implement these things) but to implement Model-View-Presenter architecture and use some interesting libraries and technologies.
+Sample project using MVP Clean architecture (check out the diagram at the bottom) . This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. The purpose of this first version was not to show beautiful animations/interfaces (next version will implement these things) but to implement Model-View-Presenter architecture and use some interesting libraries and technologies.
 In this project you will learn how to : 
 
  - Work with a model-view-presenter architecture on android
@@ -25,6 +25,13 @@ After study and see these two implementation of MVP
 - [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm
 
 I made my own implementation of mvp android clean architecture. <br/>
+
+**MVP - Architecture**
+
+
+![picture from blog.nodejitsu.com/](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/mvp.png)<br/>
+Image from blog.nodejitsu.com
+
 
 **Reference Links** <br/>
 https://www.youtube.com/watch?v=lOEOK3UvmJM </br>
