@@ -22,7 +22,7 @@ And many more things :D <br/>
 After study and see these two implementation of MVP
 
 - [EffectiveAndroidUI](https://github.com/pedrovgs/EffectiveAndroidUI) by Pedrovgs
-- [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm (Main Reference)
+- [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm 
 
 I made my own implementation of mvp android clean architecture. <br/>
 
