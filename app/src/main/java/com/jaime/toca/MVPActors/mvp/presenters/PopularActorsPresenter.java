@@ -24,36 +24,36 @@ import javax.inject.Inject;
 
 public class PopularActorsPresenter extends Presenter {
 
-    private final Bus pBus;
-    private GetPopularActors interacPopularActors;
-    private PopularActorsView popularActorsView;
+    private final Bus mBus;
+    private GetPopularActors mInteracPopularActors;
+    private PopularActorsView mPopularActorsView;
 
     @Inject
     public PopularActorsPresenter(GetPopularActors getPopularActors,Bus bus){
-        interacPopularActors = getPopularActors;
-        pBus = bus;
+        mInteracPopularActors = getPopularActors;
+        mBus = bus;
     }
 
     public void attachView (PopularActorsView ActorsView) {
-        popularActorsView = ActorsView;
+        mPopularActorsView = ActorsView;
     }
 
     @Subscribe
     public void popularActorsReceived(ActorsWrapper actorsWrapper){
-        popularActorsView.showMovies(actorsWrapper.getResults());
+        mPopularActorsView.showMovies(actorsWrapper.getResults());
     }
 
     @Override
     public void start() {
-        if (popularActorsView.EmptyList()){
-            pBus.register(this);
-            interacPopularActors.execute();
+        if (mPopularActorsView.EmptyList()){
+            mBus.register(this);
+            mInteracPopularActors.execute();
         }
     }
 
     @Override
     public void stop() {
-        pBus.unregister(this);
+        mBus.unregister(this);
     }
 
 }

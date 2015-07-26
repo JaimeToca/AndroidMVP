@@ -24,31 +24,31 @@ import javax.inject.Inject;
 
 public class GetPopularActorsImp implements GetPopularActors{
 
-    private final RestDataSource restDataSource;
-    private final Bus dBus;
-    private int page = 1;
+    private final RestDataSource mRestDataSource;
+    private final Bus mBus;
+    private int mPage = 1;
 
     @Inject
     public GetPopularActorsImp(RestDataSource dataSource, Bus Bus) {
-        restDataSource = dataSource;
-        dBus = Bus;
-        dBus.register(this);
+        mRestDataSource = dataSource;
+        mBus = Bus;
+        mBus.register(this);
     }
 
     @Override
     public void requestPopularActors(){
-        restDataSource.getPopularActors();
+        mRestDataSource.getPopularActors();
     }
 
     @Override
     public void unRegister(){
-        dBus.unregister(this);
+        mBus.unregister(this);
     }
 
     @Override
     public void execute(){
         requestPopularActors();
-        page++;
+        mPage++;
     }
 
 }

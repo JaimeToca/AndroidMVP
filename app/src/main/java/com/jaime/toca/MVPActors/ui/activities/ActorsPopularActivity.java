@@ -37,6 +37,7 @@ import com.jaime.toca.MVPActors.mvp.presenters.PopularActorsPresenter;
 import com.jaime.toca.MVPActors.mvp.views.PopularActorsView;
 import com.jaime.toca.MVPActors.ui.adapters.ActorsAdapter;
 import com.jaime.toca.MVPActors.R;
+import com.jaime.toca.MVPActors.ui.adapters.DividerItemDecoration;
 import com.jaime.toca.MVPActors.ui.listeners.RecyclerViewClickListener;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -81,6 +82,9 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setOnScrollListener(recyclerScrollListener);
+        recyclerView.addItemDecoration(new DividerItemDecoration(
+                getApplicationContext()
+        ));
 
         initializeDependencyInjector();
 

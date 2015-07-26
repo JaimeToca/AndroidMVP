@@ -24,38 +24,37 @@ import javax.inject.Inject;
 
 public class GetDetailActorImp implements GetDetailActor {
 
-    private final RestDataSource restDataSource;
-    private final Bus dBus;
-    private final String actorId;
-    private  ActorDetail actorDetail;
+    private final RestDataSource mRestDataSource;
+    private final Bus mBus;
+    private final String mActorId;
+    private  ActorDetail mActorDetail;
 
     public GetDetailActorImp(String Id,Bus bus,RestDataSource dataSource){
-        restDataSource = dataSource;
-        dBus = bus;
-        actorId = Id;
-        dBus.register(this);
+        mRestDataSource = dataSource;
+        mBus = bus;
+        mActorId = Id;
+        mBus.register(this);
     }
 
     @Override
     public void requestActorDetail(String actorId){
-        restDataSource.getDetailActor(actorId);
+        mRestDataSource.getDetailActor(actorId);
     }
 
     @Override
     @Subscribe
     public void actorDetailResponse(ActorDetail actor){
-        actorDetail = actor;
-
+        mActorDetail = actor;
     }
 
     @Override
     public void sendDetailActorToPresenter(ActorDetail actorDetailResponse){
-        dBus.post(actorDetailResponse);
+        mBus.post(actorDetailResponse);
     }
 
     @Override
     public void execute(){
-        requestActorDetail(actorId);
+        requestActorDetail(mActorId);
     }
 
 }

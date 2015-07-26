@@ -21,6 +21,7 @@ import com.jaime.toca.MVPActors.domain.interactor.GetPopularActors;
 import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
 import com.jaime.toca.MVPActors.mvp.views.ActorDetailView;
 import com.jaime.toca.MVPActors.ui.activities.ActorDetailActivity;
+import com.jaime.toca.MVPActors.utils.Constants;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -28,32 +29,31 @@ import javax.inject.Inject;
 
 public class ActorDetailPresenter extends Presenter {
 
-    private final static int MIN_URL_SIZE = 2;
-    ActorDetailView pActorDetailView;
-    private GetDetailActor interacDetailActor;
-    private Bus pBus;
-    private Boolean isLoadingImage = false;
+    ActorDetailView mActorDetailView;
+    private GetDetailActor mInteractDetailActor;
+    private Bus mBus;
+    private Boolean mIsLoadingImage = false;
 
     @Inject
     public ActorDetailPresenter(GetDetailActor getDetailActor,Bus bus){
-        interacDetailActor = getDetailActor;
-        pBus = bus;
+        mInteractDetailActor = getDetailActor;
+        mBus = bus;
     }
 
     public void attachView (ActorDetailView actorDetailView) {
-        pActorDetailView = actorDetailView;
+        mActorDetailView = actorDetailView;
     }
 
     @Override
     public void start() {
-        pBus.register(this);
-        pActorDetailView.showProgressBar();
-        interacDetailActor.execute();
+        mBus.register(this);
+        mActorDetailView.showProgressBar();
+        mInteractDetailActor.execute();
     }
 
     @Override
     public void stop() {
-        pBus.unregister(this);
+        mBus.unregister(this);
     }
 
     @Subscribe
@@ -67,33 +67,33 @@ public class ActorDetailPresenter extends Presenter {
     }
 
     public void showName(String name){
-        pActorDetailView.setName(name);
+        mActorDetailView.setName(name);
     }
 
     public void showBirthday(String birthday){
-        pActorDetailView.setBirthday(birthday);
+        mActorDetailView.setBirthday(birthday);
     }
 
     public void showPlaceOfBirth(String placeOfBirth){
-        pActorDetailView.setPlaceOfBirth(placeOfBirth);
+        mActorDetailView.setPlaceOfBirth(placeOfBirth);
     }
 
     public void showHomepage(String homepage){
-        if (homepage.length() < MIN_URL_SIZE) {
-            pActorDetailView.setHomePage(pActorDetailView.getContext().getString(R.string.noHomepage));
+        if (homepage.length() < Constants.MIN_URL_SIZE) {
+            mActorDetailView.setHomePage(mActorDetailView.getContext().getString(R.string.noHomepage));
         } else
-            pActorDetailView.setHomePage(homepage);
+            mActorDetailView.setHomePage(homepage);
     }
 
     public void showBiography(String biography){
-        pActorDetailView.setBiography(biography);
+        mActorDetailView.setBiography(biography);
     }
 
     public void showActorImage(String urlImage){
-        pActorDetailView.setActorImage(urlImage);
+        mActorDetailView.setActorImage(urlImage);
     }
 
     public Boolean isLoadingImage(){
-        return (isLoadingImage == true);
+        return (mIsLoadingImage == true);
     }
 }

@@ -43,6 +43,7 @@ import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
 import com.jaime.toca.MVPActors.mvp.presenters.ActorDetailPresenter;
 import com.jaime.toca.MVPActors.mvp.presenters.PopularActorsPresenter;
 import com.jaime.toca.MVPActors.mvp.views.ActorDetailView;
+import com.jaime.toca.MVPActors.utils.Constants;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import com.squareup.otto.ThreadEnforcer;
@@ -56,9 +57,6 @@ import butterknife.ButterKnife;
 
 
 public class ActorDetailActivity extends Activity implements ActorDetailView {
-
-    private static final String URL_BASE_PHOTOS = "https://image.tmdb.org/t/p/original/";
-    private static final int MIN_URL = 2;
 
     /* View Bindings */
     @Bind(R.id.detailProgressBar) ProgressBar progressBar;
@@ -152,7 +150,7 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
     @Override
     public void setActorImage (String urlActorPhoto){
         Picasso.with(this)
-                .load(URL_BASE_PHOTOS + urlActorPhoto)
+                .load(Constants.URL_BASE_PHOTOS + urlActorPhoto)
                 .into(actorPhoto,new Callback() {
                     @Override
                     public void onSuccess() {

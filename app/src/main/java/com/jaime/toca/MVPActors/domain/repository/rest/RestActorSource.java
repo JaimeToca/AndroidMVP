@@ -15,6 +15,8 @@
  */
 package com.jaime.toca.MVPActors.domain.repository.rest;
 import android.util.Log;
+
+import com.jaime.toca.MVPActors.utils.Constants;
 import com.squareup.otto.Bus;
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -26,33 +28,31 @@ import com.jaime.toca.MVPActors.domain.repository.model.ActorsWrapper;
 public class RestActorSource implements RestDataSource {
 
     private final ActorDatabaseAPI actorsDBApi;
-    public static final String API_KEY = "ef7207d60c949efbe23d1d2c0d580eb2";
-    public static final String HOST = "http://api.themoviedb.org/3/";
     ActorsWrapper actorsCallbackResponse;
     ActorDetail actorDetailCallbackResponse;
-    private Bus bus;
+    private Bus mBus;
 
     public RestActorSource(Bus busC) {
 
         RestAdapter movieAPIRest = new RestAdapter.Builder()
-                .setEndpoint(HOST)
+                .setEndpoint(Constants.HOST)
                 .setLogLevel(RestAdapter.LogLevel.HEADERS_AND_ARGS)
                 .build();
 
         actorsDBApi = movieAPIRest.create(ActorDatabaseAPI.class);
-        bus = busC;
+        mBus = busC;
     }
 
     /* Get the list of the last 20 most popular actors */
     @Override
     public void getPopularActors(){
-        actorsDBApi.getPopularActors(API_KEY, retrofitCallback);
+        actorsDBApi.getPopularActors(Constants.API_KEY, retrofitCallback);
     }
 
     /* get detailed information of a specific actor */
     @Override
     public void getDetailActor(String id){
-        actorsDBApi.getDetailActor(API_KEY, id, retrofitCallback);
+        actorsDBApi.getDetailActor(Constants.API_KEY, id, retrofitCallback);
     }
 
     @Override
@@ -67,13 +67,13 @@ public class RestActorSource implements RestDataSource {
         public void success(Object o, Response response) {
 
             if (o instanceof ActorsWrapper){
-                bus.post((ActorsWrapper) o);
+                mBus.post((ActorsWrapper) o);
         //        actorsCallbackResponse = (ActorsWrapper) o;
         //        sendActorsToActivity(actorsCallbackResponse);
             }
 
             else if (o instanceof ActorDetail){
-                bus.post((ActorDetail) o);
+                mBus.post((ActorDetail) o);
         //        actorDetailCallbackResponse = (ActorDetail) o;
         //        sendDetailActorToActivity(actorDetailCallbackResponse);
             }

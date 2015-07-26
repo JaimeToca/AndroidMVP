@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/row_padding"
+    android:background="@drawable/item_selector"
     >
 
     <ImageView
