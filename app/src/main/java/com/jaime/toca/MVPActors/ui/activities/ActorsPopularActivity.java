@@ -58,7 +58,7 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
     private Typeface type;
     private ActorsAdapter adapter;
 
-    /* with dagger 2.0 */
+    /* with dagger 2.0 framework */
     @Inject
     PopularActorsPresenter popularActorsPresenter;
 
