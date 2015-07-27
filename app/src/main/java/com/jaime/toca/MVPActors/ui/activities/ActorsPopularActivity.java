@@ -81,7 +81,6 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
         /* RecyclerView settings */
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setOnScrollListener(recyclerScrollListener);
         recyclerView.addItemDecoration(new DividerItemDecoration(
                 getApplicationContext()
         ));
@@ -135,46 +134,10 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
         });
     }
 
-
     public void startActorDetailActivity(Number actorId){
         Intent activityDetail = new Intent(getBaseContext(), ActorDetailActivity.class);
         activityDetail.putExtra("actorId", actorId+"");
         startActivity(activityDetail);
     }
-
-
-    /* This Scroll listener is used to show and hide the Toolbar */
-    private RecyclerView.OnScrollListener recyclerScrollListener = new RecyclerView.OnScrollListener(){
-        public boolean flagMove;
-
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-            super.onScrolled(recyclerView, dx, dy);
-
-            /* Scroll up */
-            if (dy > 6) {
-                if (!flagMove) {
-                    showToolbar();
-                    flagMove = true;
-                }
-
-            /* Scroll down */
-            } else if (dy < -6) {
-                if (flagMove) {
-                    hideToolbar();
-                    flagMove = false;
-                }
-            }
-        }
-    };
-
-    private void showToolbar() {
-        toolbar.animate().translationY(-toolbar.getBottom()).setInterpolator(new AccelerateInterpolator()).start();
-    }
-
-    private void hideToolbar() {
-        toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator()).start();
-    }
-
+    
 }
