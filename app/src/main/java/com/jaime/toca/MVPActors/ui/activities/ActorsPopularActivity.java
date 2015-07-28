@@ -62,12 +62,6 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
     @Inject
     PopularActorsPresenter popularActorsPresenter;
 
-/*  whithout dagger 2.0
-    private Bus bus = new Bus();
-    private RestActorSource restActorSource = new RestActorSource(bus);
-    private GetPopularActorsImp getPopularActorsImp = new GetPopularActorsImp(restActorSource,bus);
-    private PopularActorsPresenter popularActorsPresenter = new PopularActorsPresenter(getPopularActorsImp,bus); */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

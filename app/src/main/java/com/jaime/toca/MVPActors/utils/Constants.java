@@ -15,4 +15,7 @@ public class Constants {
     /* Constants used in ActorDetailActivity */
     public static final String URL_BASE_PHOTOS = "https://image.tmdb.org/t/p/original/";
 
+    /* This one does not really need to be resized */
+    public static final String URL_BASE_PHOTOS_LOW_QUALITY = "https://image.tmdb.org/t/p/w92/";
+
 }

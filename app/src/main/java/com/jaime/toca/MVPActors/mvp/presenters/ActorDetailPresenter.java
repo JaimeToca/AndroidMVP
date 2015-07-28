@@ -75,13 +75,16 @@ public class ActorDetailPresenter extends Presenter {
     }
 
     public void showPlaceOfBirth(String placeOfBirth){
-        mActorDetailView.setPlaceOfBirth(placeOfBirth);
+        if (placeOfBirth == null)
+            mActorDetailView.setPlaceOfBirth(mActorDetailView.getContext().getString(R.string.noPlaceOfBirth));
+        else
+            mActorDetailView.setPlaceOfBirth(placeOfBirth);
     }
 
     public void showHomepage(String homepage){
-        if (homepage.length() < Constants.MIN_URL_SIZE) {
+        if (homepage.length() < Constants.MIN_URL_SIZE)
             mActorDetailView.setHomePage(mActorDetailView.getContext().getString(R.string.noHomepage));
-        } else
+        else
             mActorDetailView.setHomePage(homepage);
     }
 

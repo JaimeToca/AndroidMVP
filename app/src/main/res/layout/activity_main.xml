@@ -36,7 +36,6 @@
         android:paddingTop="?android:attr/actionBarSize"
         android:padding="@dimen/spacing_xsmall"
         android:clipToPadding="false"
-        android:background="@color/blue_50"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 

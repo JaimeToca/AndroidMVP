@@ -13,5 +13,6 @@
     <string name="homepage">HOMEPAGE</string>
     <string name="biography">BIOGRAPHY</string>
     <string name="noHomepage">none</string>
+    <string name="noPlaceOfBirth">unknown</string>
 
 </resources>
