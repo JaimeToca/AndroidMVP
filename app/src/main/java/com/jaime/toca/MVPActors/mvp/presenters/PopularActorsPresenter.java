@@ -40,6 +40,7 @@ public class PopularActorsPresenter extends Presenter {
     @Override
     public void start() {
         if (mPopularActorsView.EmptyList()){
+            mPopularActorsView.showProgressBar();
             mPopularActorsSubscription = mInteracPopularActors.execute().subscribe(
                     ActorsWrapper -> popularActorsReceived(ActorsWrapper));
         }
@@ -47,6 +48,7 @@ public class PopularActorsPresenter extends Presenter {
 
     public void popularActorsReceived(ActorsWrapper actorsWrapper){
         mPopularActorsView.showMovies(actorsWrapper.getResults());
+        mPopularActorsView.hideProgressBar();
     }
 
     @Override

@@ -29,6 +29,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <ProgressBar
+        android:id="@+id/listProgressBar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        style="?android:attr/progressBarStyleLarge"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/actorsList"
         android:layout_width="match_parent"

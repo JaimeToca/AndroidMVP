@@ -24,6 +24,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.jaime.toca.MVPActors.ActorsApp;
 import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerPopularActorsComponent;
@@ -45,6 +46,7 @@ import butterknife.ButterKnife;
 public class ActorsPopularActivity extends Activity implements PopularActorsView{
 
     /* View Bindings */
+    @Bind(R.id.listProgressBar) ProgressBar progressBar;
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.toolbarTitle) TextView toolbarTittle;
     @Bind(R.id.actorsList) RecyclerView recyclerView;
@@ -92,6 +94,16 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
                 .appComponent(app.getAppComponent())
                 .popularActorsModule(new PopularActorsModule())
                 .build().inject(this);
+    }
+
+    @Override
+    public void showProgressBar(){
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar(){
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override

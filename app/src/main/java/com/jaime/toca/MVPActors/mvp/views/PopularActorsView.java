@@ -23,6 +23,10 @@ import java.util.List;
  */
 public interface PopularActorsView extends View{
 
+    void showProgressBar();
+
+    void hideProgressBar();
+
     void showMovies(List<Actor> actorList);
 
     boolean EmptyList ();
