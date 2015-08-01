@@ -29,6 +29,5 @@ import dagger.Component;
 
 public interface AppComponent {
 
-    Bus bus();
     RestActorSource restActorSource();
 }

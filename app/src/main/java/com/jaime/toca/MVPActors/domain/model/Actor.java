@@ -13,59 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.domain.repository.model;
+package com.jaime.toca.MVPActors.domain.model;
+
 import java.util.List;
 
-
 @SuppressWarnings("UnusedDeclaration")
-public class ActorDetail {
+public class Actor {
 
-    private boolean isLoaded;
     private String adult;
-    private List<String> also_known_as;
-    private String biography;
-    private String birthday;
-    private String deathday;
-    private String homepage;
     private Number id;
+    private List<Known_for> known_for;
     private String name;
-    private String place_of_birth;
+    private Number popularity;
     private String profile_path;
+    private boolean isLoaded;
+
+    public Actor(Number id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getAdult(){
         return adult;
-    }
-
-    public List<String> getAlsoKnownAs(){
-        return also_known_as;
-    }
-
-    public String getBiography(){
-        return biography;
-    }
-
-    public String getBirthday(){
-        return birthday;
-    }
-
-    public String getDeathday(){
-        return deathday;
-    }
-
-    public String getHomepage(){
-        return homepage;
     }
 
     public Number getId(){
         return id;
     }
 
+    public List<Known_for> getKnownFor(){
+        return known_for;
+    }
+
     public String getName(){
         return name;
     }
 
-    public String getPlaceOfBirth(){
-        return place_of_birth;
+    public Number getPopularity(){
+        return popularity;
     }
 
     public String getProfilePath(){
@@ -79,4 +64,5 @@ public class ActorDetail {
     public Boolean getIsLoaded(){
         return isLoaded;
     }
+
 }

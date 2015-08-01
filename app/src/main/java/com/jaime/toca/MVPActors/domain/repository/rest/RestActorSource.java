@@ -22,17 +22,18 @@ import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorsWrapper;
+import rx.Observable;
+
+import com.jaime.toca.MVPActors.domain.model.ActorDetail;
+import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
+
+import java.util.List;
 
 public class RestActorSource implements RestDataSource {
 
     private final ActorDatabaseAPI actorsDBApi;
-    ActorsWrapper actorsCallbackResponse;
-    ActorDetail actorDetailCallbackResponse;
-    private Bus mBus;
 
-    public RestActorSource(Bus busC) {
+    public RestActorSource() {
 
         RestAdapter movieAPIRest = new RestAdapter.Builder()
                 .setEndpoint(Constants.HOST)
@@ -40,19 +41,19 @@ public class RestActorSource implements RestDataSource {
                 .build();
 
         actorsDBApi = movieAPIRest.create(ActorDatabaseAPI.class);
-        mBus = busC;
+
     }
 
     /* Get the list of the last 20 most popular actors */
     @Override
-    public void getPopularActors(){
-        actorsDBApi.getPopularActors(Constants.API_KEY, retrofitCallback);
+    public Observable<ActorsWrapper> getPopularActors(){
+        return actorsDBApi.getPopularActors(Constants.API_KEY);
     }
 
     /* get detailed information of a specific actor */
     @Override
-    public void getDetailActor(String id){
-        actorsDBApi.getDetailActor(Constants.API_KEY, id, retrofitCallback);
+    public Observable<ActorDetail> getDetailActor(String id){
+        return actorsDBApi.getDetailActor(Constants.API_KEY, id);
     }
 
     @Override
@@ -60,30 +61,6 @@ public class RestActorSource implements RestDataSource {
         //Implement for the future
     }
 
-
-    /* RetrofitCallback */
-    public Callback retrofitCallback = new Callback() {
-        @Override
-        public void success(Object o, Response response) {
-
-            if (o instanceof ActorsWrapper){
-                mBus.post((ActorsWrapper) o);
-        //        actorsCallbackResponse = (ActorsWrapper) o;
-        //        sendActorsToActivity(actorsCallbackResponse);
-            }
-
-            else if (o instanceof ActorDetail){
-                mBus.post((ActorDetail) o);
-        //        actorDetailCallbackResponse = (ActorDetail) o;
-        //        sendDetailActorToActivity(actorDetailCallbackResponse);
-            }
-        }
-
-        @Override
-        public void failure(RetrofitError error) {
-            Log.e("Callback failure", "" + error.getMessage());
-        }
-    };
 
 
 }

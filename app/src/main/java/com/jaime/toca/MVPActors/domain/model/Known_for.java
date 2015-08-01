@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.domain.repository.model;
+package com.jaime.toca.MVPActors.domain.model;
 
 @SuppressWarnings("UnusedDeclaration")
 public class Known_for {

@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 package com.jaime.toca.MVPActors.dependencyInjection.modules;
-import com.jaime.toca.MVPActors.domain.interactor.GetDetailActor;
 import com.jaime.toca.MVPActors.domain.interactor.GetDetailActorImp;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestDataSource;
 import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
@@ -33,7 +31,7 @@ public class ActorDetailModule {
     }
 
     @Provides
-    GetDetailActor provideGetActorDetailInteractor (Bus bus, RestActorSource actorSource) {
-        return new GetDetailActorImp(actorId, bus, actorSource);
+    GetDetailActorImp provideGetActorDetailInteractor (RestActorSource actorSource) {
+        return new GetDetailActorImp(actorId, actorSource);
     }
 }

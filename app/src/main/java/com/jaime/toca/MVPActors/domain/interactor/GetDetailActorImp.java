@@ -14,47 +14,29 @@
  * limitations under the License.
  */
 package com.jaime.toca.MVPActors.domain.interactor;
-import com.jaime.toca.MVPActors.domain.repository.model.Actor;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
+import com.jaime.toca.MVPActors.domain.model.ActorDetail;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestDataSource;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
-import javax.inject.Inject;
-
-public class GetDetailActorImp implements GetDetailActor {
+public class GetDetailActorImp implements Interactor<com.jaime.toca.MVPActors.domain.model.ActorDetail> {
 
     private final RestDataSource mRestDataSource;
-    private final Bus mBus;
     private final String mActorId;
-    private  ActorDetail mActorDetail;
+    private ActorDetail mActorDetail;
 
-    public GetDetailActorImp(String Id,Bus bus,RestDataSource dataSource){
+    public GetDetailActorImp(String id,RestDataSource dataSource){
         mRestDataSource = dataSource;
-        mBus = bus;
-        mActorId = Id;
-        mBus.register(this);
+        mActorId = id;
     }
 
     @Override
-    public void requestActorDetail(String actorId){
-        mRestDataSource.getDetailActor(actorId);
-    }
+    public Observable<ActorDetail> execute() {
 
-    @Override
-    @Subscribe
-    public void actorDetailResponse(ActorDetail actor){
-        mActorDetail = actor;
+        return mRestDataSource.getDetailActor(mActorId)
+                .map(actorDetail -> mActorDetail = actorDetail)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread());
     }
-
-    @Override
-    public void sendDetailActorToPresenter(ActorDetail actorDetailResponse){
-        mBus.post(actorDetailResponse);
-    }
-
-    @Override
-    public void execute(){
-        requestActorDetail(mActorId);
-    }
-
 }

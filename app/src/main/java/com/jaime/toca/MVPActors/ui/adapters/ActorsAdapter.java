@@ -16,25 +16,25 @@
 package com.jaime.toca.MVPActors.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.jaime.toca.MVPActors.R;
-import com.jaime.toca.MVPActors.domain.repository.model.Actor;
+import com.jaime.toca.MVPActors.domain.model.Actor;
 import com.jaime.toca.MVPActors.ui.listeners.RecyclerViewClickListener;
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewHolder> {
 
-
     private List<Actor> actorsList;
     private LayoutInflater layoutInflater;
     private RecyclerViewClickListener RecyclerViewListener;
-
 
     public ActorsAdapter(List<Actor> actorsList) {
         this.actorsList = actorsList;
@@ -82,13 +82,11 @@ public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewH
     /* Class View Holder for actors */
     static class ActorViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView avatar;
-        public TextView name;
+        @Bind(R.id.name) TextView name;
 
         public ActorViewHolder(View itemView) {
             super(itemView);
-            avatar = (ImageView) itemView.findViewById(R.id.image);
-            name = (TextView) itemView.findViewById(R.id.name);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

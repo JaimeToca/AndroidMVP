@@ -15,12 +15,17 @@
  */
 package com.jaime.toca.MVPActors.domain.repository;
 
+import com.jaime.toca.MVPActors.domain.model.ActorDetail;
+import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
+
+import rx.Observable;
+
 public interface DataSource {
 
     /* Get actors list */
-    void getPopularActors();
+    Observable<ActorsWrapper> getPopularActors();
 
     /* Get detail actor information */
-    void getDetailActor(String id);
+    Observable<ActorDetail> getDetailActor(String id);
 
 }

@@ -15,7 +15,7 @@
  */
 package com.jaime.toca.MVPActors.mvp.views;
 
-import com.jaime.toca.MVPActors.domain.repository.model.Actor;
+import com.jaime.toca.MVPActors.domain.model.Actor;
 import java.util.List;
 
 /**

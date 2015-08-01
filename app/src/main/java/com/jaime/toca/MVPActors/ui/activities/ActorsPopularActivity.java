@@ -24,24 +24,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 import com.jaime.toca.MVPActors.ActorsApp;
 import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerPopularActorsComponent;
 import com.jaime.toca.MVPActors.dependencyInjection.modules.PopularActorsModule;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
-import com.jaime.toca.MVPActors.domain.repository.model.Actor;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
+import com.jaime.toca.MVPActors.domain.model.Actor;
 import com.jaime.toca.MVPActors.mvp.presenters.PopularActorsPresenter;
 import com.jaime.toca.MVPActors.mvp.views.PopularActorsView;
 import com.jaime.toca.MVPActors.ui.adapters.ActorsAdapter;
 import com.jaime.toca.MVPActors.R;
 import com.jaime.toca.MVPActors.ui.adapters.DividerItemDecoration;
 import com.jaime.toca.MVPActors.ui.listeners.RecyclerViewClickListener;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-import com.squareup.otto.ThreadEnforcer;
+
 import java.util.List;
 import javax.inject.Inject;
 

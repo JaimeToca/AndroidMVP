@@ -14,46 +14,42 @@
  * limitations under the License.
  */
 package com.jaime.toca.MVPActors.mvp.presenters;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActors;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorsWrapper;
+import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
+import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
 import com.jaime.toca.MVPActors.mvp.views.PopularActorsView;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
 import javax.inject.Inject;
+
+import rx.Subscription;
 
 
 public class PopularActorsPresenter extends Presenter {
 
-    private final Bus mBus;
-    private GetPopularActors mInteracPopularActors;
+    private GetPopularActorsImp mInteracPopularActors;
     private PopularActorsView mPopularActorsView;
+    private Subscription mPopularActorsSubscription;
 
     @Inject
-    public PopularActorsPresenter(GetPopularActors getPopularActors,Bus bus){
+    public PopularActorsPresenter(GetPopularActorsImp getPopularActors){
         mInteracPopularActors = getPopularActors;
-        mBus = bus;
     }
 
     public void attachView (PopularActorsView ActorsView) {
         mPopularActorsView = ActorsView;
     }
 
-    @Subscribe
+    @Override
+    public void start() {
+        if (mPopularActorsView.EmptyList()){
+            mPopularActorsSubscription = mInteracPopularActors.execute().subscribe(
+                    ActorsWrapper -> popularActorsReceived(ActorsWrapper));
+        }
+    }
+
     public void popularActorsReceived(ActorsWrapper actorsWrapper){
         mPopularActorsView.showMovies(actorsWrapper.getResults());
     }
 
     @Override
-    public void start() {
-        if (mPopularActorsView.EmptyList()){
-            mBus.register(this);
-            mInteracPopularActors.execute();
-        }
-    }
-
-    @Override
-    public void stop() {
-        mBus.unregister(this);
-    }
+    public void stop() {}
 
 }

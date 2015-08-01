@@ -25,11 +25,6 @@ import dagger.Provides;
 public class DomainModule {
 
     @Provides @Singleton
-    Bus provideBus () {
-        return new Bus();
-    }
-
-    @Provides @Singleton
-    RestActorSource provideDataSource (Bus bus) { return new RestActorSource(bus); }
+    RestActorSource provideDataSource () { return new RestActorSource(); }
 
 }

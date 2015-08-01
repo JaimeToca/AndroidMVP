@@ -15,29 +15,23 @@
  */
 package com.jaime.toca.MVPActors.mvp.presenters;
 import com.jaime.toca.MVPActors.R;
-import com.jaime.toca.MVPActors.domain.interactor.GetDetailActor;
 import com.jaime.toca.MVPActors.domain.interactor.GetDetailActorImp;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActors;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
+import com.jaime.toca.MVPActors.domain.model.ActorDetail;
 import com.jaime.toca.MVPActors.mvp.views.ActorDetailView;
-import com.jaime.toca.MVPActors.ui.activities.ActorDetailActivity;
 import com.jaime.toca.MVPActors.utils.Constants;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-
 import javax.inject.Inject;
+import rx.Subscription;
 
 public class ActorDetailPresenter extends Presenter {
 
     ActorDetailView mActorDetailView;
-    private GetDetailActor mInteractDetailActor;
-    private Bus mBus;
+    private GetDetailActorImp mInteractDetailActor;
     private Boolean mIsLoadingImage = false;
+    private Subscription mDetailActorSubscription;
 
     @Inject
-    public ActorDetailPresenter(GetDetailActor getDetailActor,Bus bus){
+    public ActorDetailPresenter(GetDetailActorImp getDetailActor){
         mInteractDetailActor = getDetailActor;
-        mBus = bus;
     }
 
     public void attachView (ActorDetailView actorDetailView) {
@@ -46,18 +40,18 @@ public class ActorDetailPresenter extends Presenter {
 
     @Override
     public void start() {
-        mBus.register(this);
         mActorDetailView.showProgressBar();
-        mInteractDetailActor.execute();
+        mDetailActorSubscription = mInteractDetailActor.execute().subscribe(
+                ActorDetail -> actorDetailReceived(ActorDetail));
+
     }
 
     @Override
     public void stop() {
-        mBus.unregister(this);
+
     }
 
-    @Subscribe
-    public void actorDetailResponse(ActorDetail actorDetail){
+    public void actorDetailReceived(ActorDetail actorDetail){
         showActorImage(actorDetail.getProfilePath());
         showName(actorDetail.getName());
         showBirthday(actorDetail.getBirthday());

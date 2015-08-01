@@ -19,19 +19,19 @@ import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
 import retrofit.http.Query;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorsWrapper;
+import rx.Observable;
+
+import com.jaime.toca.MVPActors.domain.model.ActorDetail;
+import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
 
 public interface ActorDatabaseAPI {
 
     @GET("/person/popular")
-    void getPopularActors(
-            @Query("api_key") String apiKey,
-            Callback<ActorsWrapper> callback);
+    Observable<ActorsWrapper> getPopularActors(
+            @Query("api_key") String apiKey);
 
     @GET("/person/{id}")
-    void getDetailActor(
+    Observable<ActorDetail> getDetailActor(
             @Query("api_key") String apiKey,
-            @Path("id") String id,
-            Callback<ActorDetail> callback);
+            @Path("id") String id);
 }

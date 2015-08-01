@@ -14,11 +14,8 @@
  * limitations under the License.
  */
 package com.jaime.toca.MVPActors.dependencyInjection.modules;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActors;
 import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestDataSource;
-import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
 
@@ -26,8 +23,8 @@ import dagger.Provides;
 public class PopularActorsModule {
 
     @Provides
-    GetPopularActors providePopularActorsInteractor (Bus bus, RestActorSource actorSource) {
-        return new GetPopularActorsImp(actorSource, bus);
+    GetPopularActorsImp providePopularActorsInteractor (RestActorSource actorSource) {
+        return new GetPopularActorsImp(actorSource);
     }
 
 }

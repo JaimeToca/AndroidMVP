@@ -14,41 +14,33 @@
  * limitations under the License.
  */
 package com.jaime.toca.MVPActors.domain.interactor;
-
-import com.jaime.toca.MVPActors.domain.repository.model.ActorDetail;
-import com.jaime.toca.MVPActors.domain.repository.model.ActorsWrapper;
+import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestDataSource;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
 import javax.inject.Inject;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
-public class GetPopularActorsImp implements GetPopularActors{
+public class GetPopularActorsImp implements Interactor<com.jaime.toca.MVPActors.domain.model.ActorsWrapper>{
 
     private final RestDataSource mRestDataSource;
-    private final Bus mBus;
+    private ActorsWrapper mActorsWrapper;
     private int mPage = 1;
 
     @Inject
-    public GetPopularActorsImp(RestDataSource dataSource, Bus Bus) {
+    public GetPopularActorsImp(RestDataSource dataSource) {
         mRestDataSource = dataSource;
-        mBus = Bus;
-        mBus.register(this);
     }
 
     @Override
-    public void requestPopularActors(){
-        mRestDataSource.getPopularActors();
-    }
+    public Observable<ActorsWrapper> execute() {
 
-    @Override
-    public void unRegister(){
-        mBus.unregister(this);
-    }
-
-    @Override
-    public void execute(){
-        requestPopularActors();
         mPage++;
+
+        return mRestDataSource.getPopularActors()
+                .map(actorsWrapper -> mActorsWrapper = actorsWrapper)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
 }
