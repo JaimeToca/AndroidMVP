@@ -1,21 +1,20 @@
 # Android MVP
-Sample project using MVP Clean architecture (check out the diagram at the bottom) . This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. The purpose of this first version was to show how to work with Model-View-Presenter architecture and use some interesting libraries and technologies.
-Interesting things that you will find in this project: 
+Sample project using MVP Clean architecture (check out the diagram at the bottom) . This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. Libraries and technologies used in this project:
 
- - how to work with a model-view-presenter architecture on android
- - RxJava
- - Work with RecyclerView and the new Toolbar hiding and showing it when the user scrolls down/up
- - Use dagger 2.0 framework and work with dependency injection 
- - Work with REST Json using Retrofit library
- - Use picasso in order to download and modify images
- - Avoid duplicated code using ButterKnife <br/>
+ - Model-View-Presenter Pattern
+ - RxJava/ReactiveX
+ - Coordinator Layout, Toolbar (Hide/show) , RecyclerView and some material design features.
+ - Dagger 2.0 framework and dependency injection 
+ - Retrofit (REST Client for android/java)
+ - Picasso in order to download and modify images.
+ - ButterKnife to avoid duplicated code <br/>
 And many more things :D <br/>
 
 **Motivation and References:** <br />
 After study and see these two implementation of MVP
 
-- [EffectiveAndroidUI](https://github.com/pedrovgs/EffectiveAndroidUI) by Pedrovgs
 - [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm 
+- [Android CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) by Fernando Cejas
 
 I made my own implementation of mvp android clean architecture. <br/>
 
