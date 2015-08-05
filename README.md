@@ -13,8 +13,8 @@ And many more things :D <br/>
 **Motivation and References:** <br />
 After study and see these two implementation of MVP
 
-- [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm 
 - [Android CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) by Fernando Cejas
+- [Material Movies](https://github.com/saulmm/Material-Movies) by Saulmm 
 
 I made my own implementation of mvp android clean architecture. <br/>
 
