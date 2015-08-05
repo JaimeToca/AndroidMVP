@@ -18,9 +18,6 @@ package com.jaime.toca.MVPActors.mvp.views;
 import com.jaime.toca.MVPActors.domain.model.Actor;
 import java.util.List;
 
-/**
- * Created by Jaime Toca on 07/07/2015.
- */
 public interface PopularActorsView extends View{
 
     void showProgressBar();
@@ -30,5 +27,7 @@ public interface PopularActorsView extends View{
     void showMovies(List<Actor> actorList);
 
     boolean EmptyList ();
+
+    void viewActorProfile(Number position);
 
 }

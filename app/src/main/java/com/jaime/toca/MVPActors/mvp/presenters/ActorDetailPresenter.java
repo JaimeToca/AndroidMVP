@@ -22,11 +22,10 @@ import com.jaime.toca.MVPActors.utils.Constants;
 import javax.inject.Inject;
 import rx.Subscription;
 
-public class ActorDetailPresenter extends Presenter {
+public class ActorDetailPresenter implements Presenter {
 
     ActorDetailView mActorDetailView;
     private GetDetailActorImp mInteractDetailActor;
-    private Boolean mIsLoadingImage = false;
     private Subscription mDetailActorSubscription;
 
     @Inject
@@ -47,9 +46,10 @@ public class ActorDetailPresenter extends Presenter {
     }
 
     @Override
-    public void stop() {
+    public void stop() {}
 
-    }
+    @Override
+    public void destroy() {}
 
     public void actorDetailReceived(ActorDetail actorDetail){
         showActorImage(actorDetail.getProfilePath());
@@ -90,7 +90,11 @@ public class ActorDetailPresenter extends Presenter {
         mActorDetailView.setActorImage(urlImage);
     }
 
-    public Boolean isLoadingImage(){
-        return (mIsLoadingImage == true);
+    public void onPictureLoaded(){
+        mActorDetailView.hideProgressBar();
+    }
+
+    public void onPictureError(){
+        return;
     }
 }

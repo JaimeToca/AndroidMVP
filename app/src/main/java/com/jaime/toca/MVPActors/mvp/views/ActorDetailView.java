@@ -15,9 +15,6 @@
  */
 package com.jaime.toca.MVPActors.mvp.views;
 
-/**
- * Created by Jaime Toca on 08/07/2015.
- */
 public interface ActorDetailView extends View {
 
     void showProgressBar();

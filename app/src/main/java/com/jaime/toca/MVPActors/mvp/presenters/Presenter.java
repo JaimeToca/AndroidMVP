@@ -15,13 +15,13 @@
  */
 package com.jaime.toca.MVPActors.mvp.presenters;
 
+/* methods used to manage the activity lifecycle in MVP pattern */
 
-/* This methos are used to manage the activity lifecycle in MVP pattern */
+public interface Presenter {
 
-public abstract class Presenter {
+    void start ();
 
-    public abstract void start ();
+    void stop ();
 
-    public abstract void stop ();
-
+    void destroy();
 }

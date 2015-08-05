@@ -17,6 +17,7 @@ package com.jaime.toca.MVPActors.dependencyInjection.components;
 import com.jaime.toca.MVPActors.dependencyInjection.modules.PopularActorsModule;
 import com.jaime.toca.MVPActors.dependencyInjection.scopes.PerActivity;
 import com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity;
+import com.jaime.toca.MVPActors.ui.fragments.ActorListFragment;
 
 import dagger.Component;
 
@@ -24,4 +25,5 @@ import dagger.Component;
 @Component(dependencies = AppComponent.class, modules = PopularActorsModule.class)
 public interface PopularActorsComponent {
     void inject (ActorsPopularActivity actorsPopularActivity);
+    void inject (ActorListFragment actorListFragment);
 }

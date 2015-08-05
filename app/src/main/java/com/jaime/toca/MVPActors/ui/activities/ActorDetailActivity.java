@@ -50,6 +50,8 @@ import com.squareup.otto.ThreadEnforcer;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Callback;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
@@ -59,20 +61,25 @@ import butterknife.ButterKnife;
 public class ActorDetailActivity extends Activity implements ActorDetailView {
 
     /* View Bindings */
-    @Bind(R.id.detailProgressBar) ProgressBar progressBar;
-    @Bind(R.id.actorPhoto) ImageView actorPhoto;
-    @Bind(R.id.actorName) TextView name;
-    @Bind(R.id.actorBirthday) TextView birthday;
-    @Bind(R.id.actorPlaceOfBirth) TextView placeOfBirth;
-    @Bind(R.id.actorHomepage) TextView homepage;
-    @Bind(R.id.actorBiography) TextView biography;
+    @Bind(R.id.detailProgressBar) ProgressBar mProgressBar;
+    @Bind(R.id.actorPhoto) ImageView mActorPhoto;
+
+    @Bind({ R.id.actorName, R.id.actorBirthday, R.id.actorPlaceOfBirth,
+            R.id.actorHomepage, R.id.actorBiography })
+    List<TextView> profileInformation;
+
+    public static final int NAME = 0;
+    public static final int BIRTHDAY = 1;
+    public static final int PLACE_OF_BIRTH = 2;
+    public static final int HOMEPAGE = 3;
+    public static final int BIOGRAPHY = 4;
 
     Bundle bundle;
-    private String actorId;
-    private Typeface type;
+    private String mActorId;
+    private Typeface mType;
 
     @Inject
-    ActorDetailPresenter detailActorPresenter;
+    ActorDetailPresenter mDetailActorPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,30 +88,34 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
         ButterKnife.bind(this);
 
         /* NameView settings */
-        type = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
-        name.setTypeface(type);
+        mType = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
+        actorInformation(NAME).setTypeface(mType);
 
         initializeDependencyInjector();
-        detailActorPresenter.attachView(this);
+        mDetailActorPresenter.attachView(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        detailActorPresenter.start();
+        mDetailActorPresenter.start();
     }
 
     private void initializeDependencyInjector() {
 
         bundle = getIntent().getExtras();
         if (bundle != null)
-            actorId = bundle.getString("actorId");
+            mActorId = bundle.getString("actorId");
 
         ActorsApp app = (ActorsApp) getApplication();
         DaggerActorDetailComponent.builder()
                 .appComponent(app.getAppComponent())
-                .actorDetailModule(new ActorDetailModule(actorId))
+                .actorDetailModule(new ActorDetailModule(mActorId))
                 .build().inject(this);
+    }
+
+    public TextView actorInformation(int n){
+        return profileInformation.get(n);
     }
 
     @Override
@@ -114,52 +125,51 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
 
     @Override
     public void showProgressBar(){
-        progressBar.setVisibility(View.VISIBLE);
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar(){
-        progressBar.setVisibility(View.GONE);
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void setName (String name){
-        this.name.setText(name);
+        actorInformation(NAME).setText(name);
     }
 
     @Override
     public void setBirthday (String birthday){
-        this.birthday.setText(birthday);
+        actorInformation(BIRTHDAY).setText(birthday);
     }
 
     @Override
     public void setPlaceOfBirth(String placeOfBirth){
-        this.placeOfBirth.setText(placeOfBirth);
+        actorInformation(PLACE_OF_BIRTH).setText(placeOfBirth);
     }
 
     @Override
     public void setHomePage (String homepage){
-        this.homepage.setText(homepage);
+        actorInformation(HOMEPAGE).setText(homepage);
     }
 
     @Override
     public void setBiography (String biography){
-        this.biography.setText(biography);
+        actorInformation(BIOGRAPHY).setText(biography);
     }
 
     @Override
     public void setActorImage (String urlActorPhoto){
         Picasso.with(this)
                 .load(Constants.URL_BASE_PHOTOS + urlActorPhoto)
-                .into(actorPhoto,new Callback() {
+                .into(mActorPhoto,new Callback() {
                     @Override
                     public void onSuccess() {
-                        hideProgressBar();
-                        //change this for next version
+                       mDetailActorPresenter.onPictureLoaded();
                     }
                     @Override
                     public void onError() {
-
+                        mDetailActorPresenter.onPictureError();
                     }
                 });
     }

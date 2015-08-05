@@ -18,11 +18,9 @@ import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
 import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
 import com.jaime.toca.MVPActors.mvp.views.PopularActorsView;
 import javax.inject.Inject;
-
 import rx.Subscription;
 
-
-public class PopularActorsPresenter extends Presenter {
+public class PopularActorsPresenter implements Presenter {
 
     private GetPopularActorsImp mInteracPopularActors;
     private PopularActorsView mPopularActorsView;
@@ -51,7 +49,13 @@ public class PopularActorsPresenter extends Presenter {
         mPopularActorsView.hideProgressBar();
     }
 
+    public void onActorClicked(Number actorId){
+        mPopularActorsView.viewActorProfile(actorId);
+    }
+
     @Override
     public void stop() {}
 
+    @Override
+    public void destroy() {}
 }

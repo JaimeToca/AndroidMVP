@@ -15,48 +15,28 @@
  */
 package com.jaime.toca.MVPActors.ui.activities;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.jaime.toca.MVPActors.ActorsApp;
 import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerPopularActorsComponent;
 import com.jaime.toca.MVPActors.dependencyInjection.modules.PopularActorsModule;
-import com.jaime.toca.MVPActors.domain.model.Actor;
-import com.jaime.toca.MVPActors.mvp.presenters.PopularActorsPresenter;
-import com.jaime.toca.MVPActors.mvp.views.PopularActorsView;
-import com.jaime.toca.MVPActors.ui.adapters.ActorsAdapter;
 import com.jaime.toca.MVPActors.R;
-import com.jaime.toca.MVPActors.ui.adapters.DividerItemDecoration;
-import com.jaime.toca.MVPActors.ui.listeners.RecyclerViewClickListener;
-
-import java.util.List;
-import javax.inject.Inject;
-
+import com.jaime.toca.MVPActors.ui.fragments.ActorListFragment;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ActorsPopularActivity extends Activity implements PopularActorsView{
+public class ActorsPopularActivity extends Activity
+        implements ActorListFragment.ActorListListener{
 
     /* View Bindings */
-    @Bind(R.id.listProgressBar) ProgressBar progressBar;
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.toolbarTitle) TextView toolbarTittle;
-    @Bind(R.id.actorsList) RecyclerView recyclerView;
-
-    private Typeface type;
-    private ActorsAdapter adapter;
-
-    /* with dagger 2.0 framework */
-    @Inject
-    PopularActorsPresenter popularActorsPresenter;
+    @Bind(R.id.toolbarTitle) TextView mToolbarTittle;
+    private Typeface mType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,26 +45,11 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
         ButterKnife.bind(this);
 
         /* Toolbar settings */
-        type = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
-        toolbarTittle.setTypeface(type);
-
-        /* RecyclerView settings */
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(
-                getApplicationContext()
-        ));
+        mType = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
+        mToolbarTittle.setTypeface(mType);
 
         initializeDependencyInjector();
 
-        if (savedInstanceState == null)
-            popularActorsPresenter.attachView(this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        popularActorsPresenter.start();
     }
 
     private void initializeDependencyInjector() {
@@ -96,48 +61,10 @@ public class ActorsPopularActivity extends Activity implements PopularActorsView
                 .build().inject(this);
     }
 
-    @Override
-    public void showProgressBar(){
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideProgressBar(){
-        progressBar.setVisibility(View.GONE);
-    }
-
-    @Override
-    public Context getContext() {
-        return this;
-    }
-
-    @Override
-    public boolean EmptyList (){
-        return (adapter == null);
-    }
-
-    @Override
-    public void showMovies(List<Actor> actorsList){
-        startAdapter(actorsList);
-    }
-
-    public void startAdapter(final List<Actor> actorsList){
-        adapter = new ActorsAdapter(actorsList);
-        recyclerView.setAdapter(adapter);
-
-        adapter.setRecyclerViewListener(new RecyclerViewClickListener() {
-            @Override
-            public void onClickRecyclerItem(View v, Number position) {
-                startActorDetailActivity(position);
-                Log.i("Onclick", "" + position);
-            }
-        });
-    }
-
-    public void startActorDetailActivity(Number actorId){
-        Intent activityDetail = new Intent(getBaseContext(), ActorDetailActivity.class);
-        activityDetail.putExtra("actorId", actorId+"");
+    public void onActorListClicked(Number actorId){
+        Intent activityDetail = new Intent(this, ActorDetailActivity.class);
+        activityDetail.putExtra("actorId", actorId + "");
         startActivity(activityDetail);
     }
-    
+
 }

@@ -59,7 +59,7 @@ public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewH
     public void onBindViewHolder(final ActorViewHolder holder, int position) {
         final Actor actor = actorsList.get(position);
         holder.name.setText(actor.getName());
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RecyclerViewListener.onClickRecyclerItem(v, actor.getId());

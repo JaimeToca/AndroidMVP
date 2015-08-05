@@ -58,7 +58,7 @@ public class RestActorSource implements RestDataSource {
 
     @Override
     public void getPopularActorsByPage (int page){
-        //Implement for the future
+        //Future implementation
     }
 
 

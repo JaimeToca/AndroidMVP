@@ -29,25 +29,23 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ProgressBar
-        android:id="@+id/listProgressBar"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible"
-        style="?android:attr/progressBarStyleLarge"
-        />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/actorsList"
+    <RelativeLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?android:attr/actionBarSize"
         android:padding="@dimen/spacing_xsmall"
         android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <fragment
+            android:name="com.jaime.toca.MVPActors.ui.fragments.ActorListFragment"
+            android:id="@+id/fragmentUserList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
 
