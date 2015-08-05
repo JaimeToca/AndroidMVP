@@ -11,14 +11,6 @@ Interesting things that you will find in this project:
  - Avoid duplicated code using ButterKnife <br/>
 And many more things :D <br/>
 
-**Upcoming changes to next version:**
-
- - New animations and interface improvements (Material Design)
- - New mapper. It will map the information from the repository to domain
- - Threads implementation instead of otto bus
- - and a few more things ...
-
-
 **Motivation and References:** <br />
 After study and see these two implementation of MVP
 
