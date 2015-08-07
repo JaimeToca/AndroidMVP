@@ -3,10 +3,10 @@ Sample project using MVP Clean architecture (check out the diagram at the bottom
 
  - Model-View-Presenter Pattern
  - RxJava/ReactiveX
- - Coordinator Layout, Toolbar (Hide/show) , RecyclerView and some material design features.
- - Dagger 2.0 framework and dependency injection 
+ - Coordinator Layout, Toolbar (Hide/show) , RecyclerView and some material design features
+ - Dagger 2.0 framework and dependency injection
  - Retrofit (REST Client for android/java)
- - Picasso in order to download and modify images.
+ - Picasso
  - ButterKnife to avoid duplicated code <br/>
 And many more things :D <br/>
 
