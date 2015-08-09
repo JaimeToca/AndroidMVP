@@ -10,7 +10,18 @@ Sample project using MVP Clean architecture (check out the diagram at the bottom
  - ButterKnife to avoid duplicated code <br/>
 And many more things :D <br/>
 
-**Motivation and References:** <br />
+# Screenshots
+
+
+![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/list-optimized.gif)
+
+![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/row-optimazed.gif)
+
+![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/profile-optimized.gif)
+
+
+
+# Motivation and References
 After study and see these two implementation of MVP
 
 - [Android CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) by Fernando Cejas
@@ -18,8 +29,8 @@ After study and see these two implementation of MVP
 
 I made my own implementation of mvp android clean architecture. <br/>
 
-**MVP - Architecture**
 
+# MVP - Architecture
 
 ![picture from blog.nodejitsu.com/](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/mvp.png)<br/>
 Image from blog.nodejitsu.com
