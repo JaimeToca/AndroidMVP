@@ -15,10 +15,9 @@ And many more things :D <br/>
 
 ![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/list-optimized.gif)
 
-![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/row-optimazed.gif)
-
 ![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/profile-optimized.gif)
 
+![enter image description here](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/row-optimazed.gif)
 
 
 # Motivation and References
