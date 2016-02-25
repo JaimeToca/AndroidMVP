@@ -31,29 +31,25 @@ import java.util.List;
 
 public class RestActorSource implements RestDataSource {
 
-    private final ActorDatabaseAPI actorsDBApi;
+    private final ActorDatabaseAPI mActorsDBApi;
 
     public RestActorSource() {
-
         RestAdapter movieAPIRest = new RestAdapter.Builder()
                 .setEndpoint(Constants.HOST)
                 .setLogLevel(RestAdapter.LogLevel.HEADERS_AND_ARGS)
                 .build();
 
-        actorsDBApi = movieAPIRest.create(ActorDatabaseAPI.class);
-
+        mActorsDBApi = movieAPIRest.create(ActorDatabaseAPI.class);
     }
 
-    /* Get the list of the last 20 most popular actors */
     @Override
     public Observable<ActorsWrapper> getPopularActors(){
-        return actorsDBApi.getPopularActors(Constants.API_KEY);
+        return mActorsDBApi.getPopularActors(Constants.API_KEY);
     }
 
-    /* get detailed information of a specific actor */
     @Override
     public Observable<ActorDetail> getDetailActor(String id){
-        return actorsDBApi.getDetailActor(Constants.API_KEY, id);
+        return mActorsDBApi.getDetailActor(Constants.API_KEY, id);
     }
 
     @Override

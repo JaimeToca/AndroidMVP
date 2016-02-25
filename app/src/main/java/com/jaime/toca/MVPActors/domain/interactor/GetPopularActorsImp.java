@@ -25,7 +25,6 @@ public class GetPopularActorsImp implements Interactor<com.jaime.toca.MVPActors.
 
     private final RestDataSource mRestDataSource;
     private ActorsWrapper mActorsWrapper;
-    private int mPage = 1;
 
     @Inject
     public GetPopularActorsImp(RestDataSource dataSource) {
@@ -34,9 +33,6 @@ public class GetPopularActorsImp implements Interactor<com.jaime.toca.MVPActors.
 
     @Override
     public Observable<ActorsWrapper> execute() {
-
-        mPage++;
-
         return mRestDataSource.getPopularActors()
                 .map(actorsWrapper -> mActorsWrapper = actorsWrapper)
                 .subscribeOn(Schedulers.newThread())

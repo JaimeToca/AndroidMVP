@@ -79,7 +79,6 @@ public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewH
         return position;
     }
 
-    /* Class View Holder for actors */
     static class ActorViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.name) TextView name;

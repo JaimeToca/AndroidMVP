@@ -36,6 +36,7 @@ public class ActorsPopularActivity extends Activity
 
     /* View Bindings */
     @Bind(R.id.toolbarTitle) TextView mToolbarTittle;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
     private Typeface mType;
 
     @Override

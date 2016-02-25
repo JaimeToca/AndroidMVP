@@ -64,6 +64,7 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
     @Bind(R.id.detailProgressBar) ProgressBar mProgressBar;
     @Bind(R.id.actorPhoto) ImageView mActorPhoto;
 
+
     @Bind({ R.id.actorName, R.id.actorBirthday, R.id.actorPlaceOfBirth,
             R.id.actorHomepage, R.id.actorBiography })
     List<TextView> profileInformation;

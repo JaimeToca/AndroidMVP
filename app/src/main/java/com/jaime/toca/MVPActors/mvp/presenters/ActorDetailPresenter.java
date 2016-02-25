@@ -42,7 +42,6 @@ public class ActorDetailPresenter implements Presenter {
         mActorDetailView.showProgressBar();
         mDetailActorSubscription = mInteractDetailActor.execute().subscribe(
                 ActorDetail -> actorDetailReceived(ActorDetail));
-
     }
 
     @Override

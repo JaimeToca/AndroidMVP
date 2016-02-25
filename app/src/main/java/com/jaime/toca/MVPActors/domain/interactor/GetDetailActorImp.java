@@ -33,7 +33,6 @@ public class GetDetailActorImp implements Interactor<com.jaime.toca.MVPActors.do
 
     @Override
     public Observable<ActorDetail> execute() {
-
         return mRestDataSource.getDetailActor(mActorId)
                 .map(actorDetail -> mActorDetail = actorDetail)
                 .subscribeOn(Schedulers.newThread())

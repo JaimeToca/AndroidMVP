@@ -21,11 +21,6 @@ import com.jaime.toca.MVPActors.domain.model.ActorsWrapper;
 import rx.Observable;
 
 public interface DataSource {
-
-    /* Get actors list */
     Observable<ActorsWrapper> getPopularActors();
-
-    /* Get detail actor information */
     Observable<ActorDetail> getDetailActor(String id);
-
 }

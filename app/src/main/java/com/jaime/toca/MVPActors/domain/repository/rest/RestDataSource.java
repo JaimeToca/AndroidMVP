@@ -18,7 +18,5 @@ package com.jaime.toca.MVPActors.domain.repository.rest;
 import com.jaime.toca.MVPActors.domain.repository.DataSource;
 
 public interface RestDataSource extends DataSource {
-
-    public void getPopularActorsByPage (int page);
-
+    void getPopularActorsByPage (int page);
 }
