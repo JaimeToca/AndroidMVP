@@ -21,7 +21,7 @@ And many more things :D <br/>
 
 
 # Motivation and References
-After study and see [Saulmm's](https://github.com/saulmm) project "Material Movies" I made my own implementation of mvp android clean architecture. Also "Avengers" and [this](https://github.com/android10/Android-CleanArchitecture) project by Fernando Cejas were very helpful. I really recommend you to check out their repositories  <br/>
+After study and see [Saulmm's](https://github.com/saulmm) project "Material Movies" I made my own implementation of mvp android clean architecture. Also "Avengers" was very helpful. I really recommend you to check out his repository  <br/>
 
 
 # MVP - Architecture
