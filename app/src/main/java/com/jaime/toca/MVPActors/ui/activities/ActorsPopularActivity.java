@@ -15,17 +15,14 @@
  */
 package com.jaime.toca.MVPActors.ui.activities;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import com.jaime.toca.MVPActors.ActorsApp;
-import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerPopularActorsComponent;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.PopularActorsModule;
+import com.jaime.toca.MVPActors.di.components.DaggerPopularActorsComponent;
+import com.jaime.toca.MVPActors.di.modules.PopularActorsModule;
 import com.jaime.toca.MVPActors.R;
 import com.jaime.toca.MVPActors.ui.fragments.ActorListFragment;
 import butterknife.Bind;

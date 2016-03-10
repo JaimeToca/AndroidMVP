@@ -1,0 +1,89 @@
+TASK toca.jaime.com.pruebas id=76
+  ACTIVITY toca.jaime.com.pruebas/com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity 219be4ca pid=2199
+    Local Activity 3db843a4 State:
+      mResumed=true mStopped=false mFinished=false
+      mLoadersStarted=true
+      mChangingConfigurations=false
+      mCurrentConfig={1.0 310mcc260mnc en_US ?layoutDir sw360dp w360dp h567dp 480dpi nrml port finger -keyb/v/h -nav/h s.5}
+    Active Fragments in 15f11e48:
+      #0: ActorListFragment{29404e1 #0 id=0x7f0c006c}
+        mFragmentId=#7f0c006c mContainerId=#7f0c006b mTag=null
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=true mFromLayout=true mInLayout=true
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{15f11e48 in ActorsPopularActivity{3db843a4}}
+        mActivity=com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity@3db843a4
+        mView=android.widget.RelativeLayout{1988d206 V.E..... ........ 6,6-1074,1695 #7f0c006c app:id/fragmentUserList}
+        Child FragmentManager{5e370c7 in ActorListFragment{29404e1}}:
+          FragmentManager misc state:
+            mActivity=com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity@3db843a4
+            mContainer=android.app.Fragment$1@f1dd6f4
+            mParent=ActorListFragment{29404e1 #0 id=0x7f0c006c}
+            mCurState=5 mStateSaved=false mDestroyed=false
+    Added Fragments:
+      #0: ActorListFragment{29404e1 #0 id=0x7f0c006c}
+    FragmentManager misc state:
+      mActivity=com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity@3db843a4
+      mContainer=android.app.Activity$1@3beb0e1d
+      mCurState=5 mStateSaved=false mDestroyed=false
+    ViewRoot:
+      mAdded=true mRemoved=false
+      mConsumeBatchedInputScheduled=false
+      mConsumeBatchedInputImmediatelyScheduled=false
+      mPendingInputEventCount=0
+      mProcessInputEventsScheduled=false
+      mTraversalScheduled=false
+      android.view.ViewRootImpl$NativePreImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$ImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$NativePostImeInputStage: mQueueLength=0
+    Choreographer:
+      mFrameScheduled=false
+      mLastFrameTime=70649 (523304 ms ago)
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{28d00892 V.E..... R....... 0,0-1080,1920}
+        android.widget.LinearLayout{361c5263 V.E..... ........ 0,0-1080,1776}
+          android.view.ViewStub{6bb6e60 G.E..... ......I. 0,0-0,0 #1020373}
+          android.widget.FrameLayout{37af6f19 V.E..... ........ 0,75-1080,1776 #1020002 android:id/content}
+            android.support.design.widget.CoordinatorLayout{2fe21bde V.E..... ........ 0,0-1080,1701 #7f0c0067 app:id/coordinatorLayout}
+              android.support.design.widget.AppBarLayout{3377b1bf V.E..... ........ 0,0-1080,168 #7f0c0068 app:id/appBarLayout}
+                android.support.v7.widget.Toolbar{1ad9108c V.E..... ........ 0,0-1080,168 #7f0c0069 app:id/toolbar}
+                  android.widget.TextView{29bee3d5 V.ED.... ........ 48,27-495,141 #7f0c006a app:id/toolbarTitle}
+              android.widget.RelativeLayout{3b7017ea V.E..... ........ 0,0-1080,1701 #7f0c006b app:id/fragmentContainer}
+                android.widget.RelativeLayout{1988d206 V.E..... ........ 6,6-1074,1695 #7f0c006c app:id/fragmentUserList}
+                  android.support.v7.widget.RecyclerView{1effaadb VFED.V.. .F...... 0,0-1068,1689 #7f0c006d app:id/actorsList}
+                    android.widget.LinearLayout{194ca978 V.E...C. ........ 0,0-1068,180}
+                      android.widget.ImageView{2c16e851 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2fc8b6 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{164419b7 V.E...C. ........ 0,180-1068,360}
+                      android.widget.ImageView{155ee524 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2110b88d V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{3667ba42 V.E...C. ........ 0,360-1068,540}
+                      android.widget.ImageView{15f69a53 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2c372f90 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{3d5d5089 V.E...C. ........ 0,540-1068,720}
+                      android.widget.ImageView{223b388e V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2a4688af V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{2407b4bc V.E...C. ........ 0,720-1068,900}
+                      android.widget.ImageView{35c16c45 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{14b64f9a V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{8fd00cb V.E...C. ........ 0,900-1068,1080}
+                      android.widget.ImageView{11f960a8 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{c9187c1 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{3199cb66 V.E...C. ........ 0,1080-1068,1260}
+                      android.widget.ImageView{3158dea7 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{32d7df54 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{3aeddefd V.E...C. ........ 0,1260-1068,1440}
+                      android.widget.ImageView{5e737f2 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2daabe43 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{227d9cc0 V.E...C. ........ 0,1440-1068,1620}
+                      android.widget.ImageView{31be6df9 V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{3b2ce13e V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                    android.widget.LinearLayout{12b0fb9f V.E...C. ........ 0,1620-1068,1800}
+                      android.widget.ImageView{1dffc4ec V.ED.... ........ 15,15-165,165 #7f0c006f app:id/avatar}
+                      android.widget.TextView{2e6ef0b5 V.ED.... ........ 165,15-1053,165 #7f0c0070 app:id/name}
+                  android.widget.ProgressBar{3391d34a G.ED.... ......ID 451,762-616,927 #7f0c006e app:id/listProgressBar}
+        android.view.View{18b3b2bb V.ED.... ........ 0,0-1080,75 #102002f android:id/statusBarBackground}
+        android.view.View{3c9a43d8 V.ED.... ........ 0,1776-1080,1920 #1020030 android:id/navigationBarBackground}
+    Looper (main, tid 1) {1f6ae331}
+      (Total messages: 0, idling=false, quitting=false)

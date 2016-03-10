@@ -13,21 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.components;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.AppModule;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.DomainModule;
+package com.jaime.toca.MVPActors.di.modules;
+import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import com.squareup.otto.Bus;
-import javax.inject.Singleton;
-import dagger.Component;
+import dagger.Module;
+import dagger.Provides;
 
-@Singleton
-@Component(modules = {
-        AppModule.class,
-        DomainModule.class,
-})
+@Module
+public class PopularActorsModule {
 
-public interface AppComponent {
+    @Provides
+    GetPopularActorsImp providePopularActorsInteractor (RestActorSource actorSource) {
+        return new GetPopularActorsImp(actorSource);
+    }
 
-    RestActorSource restActorSource();
 }

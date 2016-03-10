@@ -13,25 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.modules;
+package com.jaime.toca.MVPActors.di.components;
+import com.jaime.toca.MVPActors.di.modules.AppModule;
+import com.jaime.toca.MVPActors.di.modules.DomainModule;
+import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
 
-import android.content.Context;
-import com.jaime.toca.MVPActors.ActorsApp;
 import javax.inject.Singleton;
-import dagger.Module;
-import dagger.Provides;
+import dagger.Component;
 
-@Module
-public class AppModule {
+@Singleton
+@Component(modules = {
+        AppModule.class,
+        DomainModule.class,
+})
 
-    private final ActorsApp app;
+public interface AppComponent {
 
-    public AppModule(ActorsApp app) {
-
-        this.app = app;
-    }
-
-    @Provides @Singleton
-    Context provideAppContext () { return app; }
-
+    RestActorSource restActorSource();
 }

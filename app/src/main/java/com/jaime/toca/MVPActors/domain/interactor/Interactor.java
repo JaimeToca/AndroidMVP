@@ -18,7 +18,5 @@ package com.jaime.toca.MVPActors.domain.interactor;
 import rx.Observable;
 
 public interface Interactor<T> {
-
     Observable<T> execute();
-
 }

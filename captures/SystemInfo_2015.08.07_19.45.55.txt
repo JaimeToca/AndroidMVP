@@ -1,0 +1,34 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        340f944b toca.jaime.com.pruebas/com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity
+
+Key Set Manager:
+  [toca.jaime.com.pruebas]
+      Signing KeySets: 99
+
+Packages:
+  Package [toca.jaime.com.pruebas] (1f77fdd2):
+    userId=10057 gids=[3003]
+    pkg=Package{26d32e28 toca.jaime.com.pruebas}
+    codePath=/data/app/toca.jaime.com.pruebas-2
+    resourcePath=/data/app/toca.jaime.com.pruebas-2
+    legacyNativeLibraryDir=/data/app/toca.jaime.com.pruebas-2/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=1 targetSdk=21
+    versionName=1.0
+    splits=[base]
+    applicationInfo=ApplicationInfo{3aeb0741 toca.jaime.com.pruebas}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    dataDir=/data/data/toca.jaime.com.pruebas
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2015-08-07 18:36:47
+    firstInstallTime=2015-07-30 18:10:15
+    lastUpdateTime=2015-08-07 18:36:48
+    signatures=PackageSignatures{34cad559 [f8e14e6]}
+    permissionsFixed=true haveGids=true installStatus=1
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    User 0:  installed=true hidden=false stopped=false notLaunched=false enabled=0
+    grantedPermissions:
+      android.permission.INTERNET

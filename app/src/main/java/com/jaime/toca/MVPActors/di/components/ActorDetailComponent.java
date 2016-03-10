@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.modules;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import dagger.Module;
-import dagger.Provides;
+package com.jaime.toca.MVPActors.di.components;
 
-@Module
-public class PopularActorsModule {
+import com.jaime.toca.MVPActors.di.modules.ActorDetailModule;
+import com.jaime.toca.MVPActors.di.scopes.PerActivity;
+import com.jaime.toca.MVPActors.ui.activities.ActorDetailActivity;
 
-    @Provides
-    GetPopularActorsImp providePopularActorsInteractor (RestActorSource actorSource) {
-        return new GetPopularActorsImp(actorSource);
-    }
+import dagger.Component;
 
+@PerActivity
+@Component(dependencies = AppComponent.class, modules = ActorDetailModule.class)
+public interface ActorDetailComponent {
+
+    void inject (ActorDetailActivity actorDetailActivity);
 }
+

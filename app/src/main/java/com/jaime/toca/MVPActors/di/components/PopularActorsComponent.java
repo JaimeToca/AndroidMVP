@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.components;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.PopularActorsModule;
-import com.jaime.toca.MVPActors.dependencyInjection.scopes.PerActivity;
+package com.jaime.toca.MVPActors.di.components;
+import com.jaime.toca.MVPActors.di.modules.PopularActorsModule;
+import com.jaime.toca.MVPActors.di.scopes.PerActivity;
 import com.jaime.toca.MVPActors.ui.activities.ActorsPopularActivity;
 import com.jaime.toca.MVPActors.ui.fragments.ActorListFragment;
 

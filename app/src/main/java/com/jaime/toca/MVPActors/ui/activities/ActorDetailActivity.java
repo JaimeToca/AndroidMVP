@@ -17,36 +17,20 @@ package com.jaime.toca.MVPActors.ui.activities;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.graphics.Palette;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jaime.toca.MVPActors.ActorsApp;
 import com.jaime.toca.MVPActors.R;
-import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerActorDetailComponent;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.ActorDetailModule;
-import com.jaime.toca.MVPActors.domain.interactor.GetDetailActorImp;
-import com.jaime.toca.MVPActors.domain.interactor.GetPopularActorsImp;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
+import com.jaime.toca.MVPActors.di.components.DaggerActorDetailComponent;
+import com.jaime.toca.MVPActors.di.modules.ActorDetailModule;
 import com.jaime.toca.MVPActors.mvp.presenters.ActorDetailPresenter;
-import com.jaime.toca.MVPActors.mvp.presenters.PopularActorsPresenter;
 import com.jaime.toca.MVPActors.mvp.views.ActorDetailView;
 import com.jaime.toca.MVPActors.utils.Constants;
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-import com.squareup.otto.ThreadEnforcer;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Callback;
 

@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.modules;
+package com.jaime.toca.MVPActors.di.modules;
 import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
 import dagger.Module;

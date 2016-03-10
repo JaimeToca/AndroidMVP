@@ -1,9 +1,9 @@
 package com.jaime.toca.MVPActors;
 import android.app.Application;
-import com.jaime.toca.MVPActors.dependencyInjection.components.AppComponent;
-import com.jaime.toca.MVPActors.dependencyInjection.components.DaggerAppComponent;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.AppModule;
-import com.jaime.toca.MVPActors.dependencyInjection.modules.DomainModule;
+import com.jaime.toca.MVPActors.di.components.AppComponent;
+import com.jaime.toca.MVPActors.di.components.DaggerAppComponent;
+import com.jaime.toca.MVPActors.di.modules.AppModule;
+import com.jaime.toca.MVPActors.di.modules.DomainModule;
 
 public class ActorsApp extends Application {
 

@@ -1,0 +1,37 @@
+Applications Memory Usage (kB):
+Uptime: 612219 Realtime: 612220
+
+** MEMINFO in pid 2199 [toca.jaime.com.pruebas] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     3291     3228        0        0    16384    13529     2854
+  Dalvik Heap     2263     2212        0        0     2094     1690      404
+ Dalvik Other      336      336        0        0                           
+        Stack      108      108        0        0                           
+    Other dev        4        0        4        0                           
+     .so mmap      889      104       16        0                           
+    .apk mmap      222        0       80        0                           
+    .ttf mmap       14        0        8        0                           
+    .dex mmap     3284        0     3280        0                           
+    .oat mmap     1378        0      176        0                           
+    .art mmap      940      572        8        0                           
+   Other mmap        6        4        0        0                           
+      Unknown       77       76        0        0                           
+        TOTAL    12812     6640     3572        0    18478    15219     3258
+ 
+ Objects
+               Views:       44         ViewRootImpl:        1
+         AppContexts:        3           Activities:        1
+              Assets:        3        AssetManagers:        3
+       Local Binders:        7        Proxy Binders:       12
+       Parcel memory:        2         Parcel count:       10
+    Death Recipients:        0      OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 
+ 
+ Asset Allocations
+    zip:/data/app/toca.jaime.com.pruebas-2/base.apk:/assets/Pacifico.ttf: 74K

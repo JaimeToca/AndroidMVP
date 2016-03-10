@@ -13,25 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jaime.toca.MVPActors.dependencyInjection.modules;
-import com.jaime.toca.MVPActors.domain.interactor.GetDetailActorImp;
-import com.jaime.toca.MVPActors.domain.repository.rest.RestActorSource;
-import com.squareup.otto.Bus;
+package com.jaime.toca.MVPActors.di.modules;
+
+import android.content.Context;
+import com.jaime.toca.MVPActors.ActorsApp;
+import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-
 @Module
-public class ActorDetailModule {
+public class AppModule {
 
-    private final String actorId;
+    private final ActorsApp app;
 
-    public ActorDetailModule(String actorId) {
-        this.actorId = actorId;
+    public AppModule(ActorsApp app) {
+
+        this.app = app;
     }
 
-    @Provides
-    GetDetailActorImp provideGetActorDetailInteractor (RestActorSource actorSource) {
-        return new GetDetailActorImp(actorId, actorSource);
-    }
+    @Provides @Singleton
+    Context provideAppContext () { return app; }
+
 }

@@ -1,4 +1,4 @@
-package com.jaime.toca.MVPActors.dependencyInjection.scopes;
+package com.jaime.toca.MVPActors.di.scopes;
 import java.lang.annotation.Retention;
 
 import javax.inject.Scope;
