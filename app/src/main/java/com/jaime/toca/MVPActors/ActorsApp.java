@@ -24,5 +24,4 @@ public class ActorsApp extends Application {
     public AppComponent getAppComponent() {
         return appComponent;
     }
-
 }

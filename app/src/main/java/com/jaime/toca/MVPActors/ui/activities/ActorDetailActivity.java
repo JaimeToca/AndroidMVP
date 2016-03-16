@@ -44,11 +44,8 @@ import butterknife.ButterKnife;
 
 public class ActorDetailActivity extends Activity implements ActorDetailView {
 
-    /* View Bindings */
     @Bind(R.id.detailProgressBar) ProgressBar mProgressBar;
     @Bind(R.id.actorPhoto) ImageView mActorPhoto;
-
-
     @Bind({ R.id.actorName, R.id.actorBirthday, R.id.actorPlaceOfBirth,
             R.id.actorHomepage, R.id.actorBiography })
     List<TextView> profileInformation;
@@ -59,10 +56,9 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
     public static final int HOMEPAGE = 3;
     public static final int BIOGRAPHY = 4;
 
-    Bundle bundle;
+    private Bundle bundle;
     private String mActorId;
     private Typeface mType;
-
     @Inject
     ActorDetailPresenter mDetailActorPresenter;
 
@@ -71,13 +67,10 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_detail);
         ButterKnife.bind(this);
-
-        /* NameView settings */
-        mType = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
-        actorInformation(NAME).setTypeface(mType);
-
         initializeDependencyInjector();
         mDetailActorPresenter.attachView(this);
+        mType = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
+        actorInformation(NAME).setTypeface(mType);
     }
 
     @Override
@@ -87,7 +80,6 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
     }
 
     private void initializeDependencyInjector() {
-
         bundle = getIntent().getExtras();
         if (bundle != null)
             mActorId = bundle.getString("actorId");
@@ -158,5 +150,4 @@ public class ActorDetailActivity extends Activity implements ActorDetailView {
                     }
                 });
     }
-
 }

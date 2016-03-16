@@ -56,7 +56,4 @@ public class RestActorSource implements RestDataSource {
     public void getPopularActorsByPage (int page){
         //Future implementation
     }
-
-
-
 }

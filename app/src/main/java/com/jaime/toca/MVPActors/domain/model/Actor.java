@@ -64,5 +64,4 @@ public class Actor {
     public Boolean getIsLoaded(){
         return isLoaded;
     }
-
 }

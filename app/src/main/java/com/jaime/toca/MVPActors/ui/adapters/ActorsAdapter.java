@@ -33,7 +33,6 @@ import butterknife.ButterKnife;
 public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewHolder> {
 
     private List<Actor> actorsList;
-    private LayoutInflater layoutInflater;
     private RecyclerViewClickListener RecyclerViewListener;
 
     public ActorsAdapter(List<Actor> actorsList) {
@@ -80,7 +79,6 @@ public class ActorsAdapter extends RecyclerView.Adapter<ActorsAdapter.ActorViewH
     }
 
     static class ActorViewHolder extends RecyclerView.ViewHolder {
-
         @Bind(R.id.name) TextView name;
 
         public ActorViewHolder(View itemView) {

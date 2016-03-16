@@ -16,18 +16,8 @@
 package com.jaime.toca.MVPActors.utils;
 
 public class Constants {
-
-    /* Constants used in rest repository */
     public static final String HOST = "http://api.themoviedb.org/3/";
     public static final String API_KEY = "ef7207d60c949efbe23d1d2c0d580eb2";
-
-    /* Constants used in ActorDetailPresenter */
     public static final int MIN_URL_SIZE = 2;
-
-    /* URL actor picture high quality */
     public static final String URL_BASE_PHOTOS = "https://image.tmdb.org/t/p/original/";
-
-    /* This one does not really need to be resized. Low quality */
-    public static final String URL_BASE_PHOTOS_LOW_QUALITY = "https://image.tmdb.org/t/p/w92/";
-
 }

@@ -31,7 +31,6 @@ import butterknife.ButterKnife;
 public class ActorsPopularActivity extends Activity
         implements ActorListFragment.ActorListListener{
 
-    /* View Bindings */
     @Bind(R.id.toolbarTitle) TextView mToolbarTittle;
     @Bind(R.id.toolbar) Toolbar mToolbar;
     private Typeface mType;
@@ -41,18 +40,17 @@ public class ActorsPopularActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initializeDependencyInjector();
+        initializeToolbar();
+    }
 
-        /* Toolbar settings */
+    private void initializeToolbar(){
         mType = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
         mToolbarTittle.setTypeface(mType);
-
-        initializeDependencyInjector();
-
     }
 
     private void initializeDependencyInjector() {
         ActorsApp app = (ActorsApp) getApplication();
-
         DaggerPopularActorsComponent.builder()
                 .appComponent(app.getAppComponent())
                 .popularActorsModule(new PopularActorsModule())
@@ -64,5 +62,4 @@ public class ActorsPopularActivity extends Activity
         activityDetail.putExtra("actorId", actorId + "");
         startActivity(activityDetail);
     }
-
 }

@@ -38,5 +38,4 @@ public class GetPopularActorsImp implements Interactor<com.jaime.toca.MVPActors.
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-
 }
