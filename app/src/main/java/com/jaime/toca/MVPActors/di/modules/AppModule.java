@@ -27,7 +27,6 @@ public class AppModule {
     private final ActorsApp app;
 
     public AppModule(ActorsApp app) {
-
         this.app = app;
     }
 
