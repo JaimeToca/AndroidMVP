@@ -1,5 +1,4 @@
-# Android MVP
-# Deprecated </br>
+# Android MVP (Deprecated)
 This repository is deprecated, I'm currently working on a new one. It will be avaiable pretty soon :)</br>
 
 Sample project using MVP Clean architecture (check out the diagram at the bottom) . This small app show a list of the most famous hollywood actors (retrieve from themoviedb.org), when any of them is clicked a new screen will be opened with detailed information about the specific actor. Libraries and technologies used in this project:
