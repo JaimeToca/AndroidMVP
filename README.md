@@ -26,7 +26,7 @@ And many more things :D <br/>
 After study and see [Saulmm's](https://github.com/saulmm) project "Material Movies" I made my own implementation of mvp android clean architecture. Also "Avengers" was very helpful. I really recommend you to check out his repository  <br/>
 
 
-# MVP - Architecture
+# MVP 
 
 ![picture from blog.nodejitsu.com/](https://github.com/JaimeToca/AndroidMVP/blob/master/pictures/mvp.png)<br/>
 Image from blog.nodejitsu.com
